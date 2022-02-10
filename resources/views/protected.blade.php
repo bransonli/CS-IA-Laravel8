@@ -1,0 +1,2 @@
+online
+{{auth()->user()->email}}
