@@ -29,7 +29,7 @@
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main style="margin: 5%; text-align:center;">
                 @yield('content')
             </main>
         </div>

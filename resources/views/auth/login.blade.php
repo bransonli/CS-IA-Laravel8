@@ -46,6 +46,8 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+            
+                <a href="/register">register</a>
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}
