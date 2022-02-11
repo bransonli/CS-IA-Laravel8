@@ -21,11 +21,31 @@
         <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
+
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header??" " }}
+                <div class="hidden sm:-my-px sm:ml-10 sm:flex">
+                    <form method ='POST' action ='/search'>
+                        @csrf
+                        <div> 
+                            <div class="control">
+                                <br>
+                                <input class = "whitespace-nowrap shadow appearance-none border py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                type="text" name="search" id ="search" placeholder="search"/>
+                            </div>
+                        </div>
+                    </form>
+                    <form method ='POST' action ='/search'>
+                        @csrf
+                        <div> 
+                            <div class="control">
+                                <br>
+                                <button class=" whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4" type="submit">search</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+                <br>
             </header>
 
             <!-- Page Content -->

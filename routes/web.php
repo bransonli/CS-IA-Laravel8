@@ -6,6 +6,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\ReplyController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\ResourceController;
+use App\Http\Controllers\SearchController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,6 @@ Route::get('/subjects/{subject_name}/resource/{id}/delete', [ResourceController:
 Route::post('/subjects/{subject_name}/resource/{id}/update', [ResourceController::class, 'update']);
 
 //Search
-Route::get('/search/{search_term}', [SearchController::class, 'search']);
+Route::post('/search', [SearchController::class, 'search']);
 
 require __DIR__.'/auth.php';
