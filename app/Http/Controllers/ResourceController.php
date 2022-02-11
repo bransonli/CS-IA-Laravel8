@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Resource;
 use App\Models\Subject;
+use App\Models\User;
 
 class ResourceController extends Controller
 {
@@ -31,6 +32,7 @@ class ResourceController extends Controller
     public function store($subject_name)
     {
         request()->all();
+        $user_id = User::where("email", auth()->user()->email)->first()->id;
         $subject = Subject::where("name", $subject_name)->first();
         // stores the create form 
         
@@ -39,6 +41,7 @@ class ResourceController extends Controller
         $resource->link = request('link');
         $resource->description = request('description');
         $resource->subject_id = $subject->id;
+        $resource->user_id = $user_id;
         $resource->save();
 
         $url = "/subjects/".$subject_name."/resource";

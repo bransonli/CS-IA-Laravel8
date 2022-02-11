@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Discussion;
 use App\Models\Subject;
 use App\Models\Reply;
+use App\Models\User;
 
 class DiscussionController extends Controller
 {
@@ -34,12 +35,15 @@ class DiscussionController extends Controller
     {
         request()->all();
         // stores the create form 
+        $user_id = User::where("email", auth()->user()->email)->first()->id;
         $subject = Subject::where("name", $subject)->first();
         $discussion = new Discussion();
         $discussion->name = request('name');
         $discussion->subject_id = $subject->id;
+        $discussion->user_id = $user_id;
         $discussion->save();
         $url = "/subjects/".$subject->name."/discussion";
+        
 
         return redirect($url);
     }

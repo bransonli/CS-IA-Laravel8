@@ -21,6 +21,8 @@ class CreateResourcesTable extends Migration
             $table->string("description");
             $table->integer('subject_id')->unsigned();
             $table->foreign('subject_id')->references('id')->on('subjects'); 
+            $table->integer('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

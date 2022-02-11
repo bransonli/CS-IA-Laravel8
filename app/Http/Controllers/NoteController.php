@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use App\Models\Note;
 use App\Models\Subject;
+use App\Models\User;
 
 class NoteController extends Controller
 {
@@ -34,12 +35,14 @@ class NoteController extends Controller
     {
         request()->all();
         // stores the create form 
+        $user_id = User::where("email", auth()->user()->email)->first()->id;
         $subject = Subject::where("name", $subject)->first();
         $subject_id = $subject->id;
         
         $note = new Note();
         $note->name = request('name');
         $note->description = request('description');
+        $note->user_id = $user_id;
 
         // Request note file
         $file = request('note');

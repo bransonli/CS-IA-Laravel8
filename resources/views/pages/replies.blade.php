@@ -7,62 +7,44 @@
 
 @section('content')
 
-<a href='/subjects/{{$subject->name}}/discussion'>Other questions and discussions related to {{$subject->name}}</a>
+<h2 class="font-medium leading-tight text-4xl mt-0 mb-2 text-blue-600">
+  {{$discussion->name}}
+</h2>
 
-<h1>{{$discussion->name}}</h1>
+<hr>
 
-@foreach ($replies as $reply)
-    <p>
-        {{$reply->content}}
-        <a href="/subjects/{{$subject->name}}/discussion/{{$reply->discussion_id}}/reply/{{$reply->id}}/delete"><button>Delete message</button></a>
-
-
-        <!-- Edit message modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal{{$reply->id}}">
-          Launch demo modal
-        </button>
-
-        <!-- Modal to edit message -->
-        <div class="modal fade" id="modal{{$reply->id}}" tabindex="-1" aria-labelledby="modal{{$reply->id}}" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit message</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <form method ='POST' action ='/subjects/{{$subject->name}}/discussion/{{$reply->discussion_id}}/reply/{{$reply->id}}/update' >
-                  @csrf
-                  <div> 
-                      <label class ="label" for="name" >Discussion</label>
-                      <div class="control">
-                          <input type="text" name="content" id = "content" value="{{$reply->content}}">
-                          <br>
-                      </div>
-                  </div>
-                  <br>
-              
-                  <div>
-                      <div class="control">
-                          <button class="button is-link" type="submit">Save Changes</button>
-                          <br>
-                          <br>
-
-                      </div>
-                  </div>
-                </form>
-              </div>
-              <div class="modal-footer">
-              </div>
-            </div>
-          </div>
-        </div>
-
-    </p>
-@endforeach
-
-
-
+<table class="table-auto w-full">
+    <thead class="bg-gray-50">
+      <tr>
+        <td scope="col"><b>Identity</b></td>
+        <td scope="col"><b>Reply</b></td>
+        <td scope="col"><b>Date</b></td>
+        <td scope="col"><b>Actions</b></td>
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-300">
+        @foreach ($replies as $reply)
+          <tr class="whitespace-nowrap">
+            <td>{{$user->role}}-{{$user->id}}</td>
+            <td>{{$reply->content}}</td>
+            <td>{{$reply->created_at}}</td>
+            <td>
+              <a href="/subjects/{{$subject->name}}/discussion/{{$reply->discussion_id}}/reply/{{$reply->id}}/delete">
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-0.1 px-4 rounded">            
+                  delete
+                </button>
+              </a>
+              <a href="/subjects/{{$subject->name}}/discussion/{{$reply->discussion_id}}/reply/{{$reply->id}}/edit">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.1 px-4 rounded">
+                  edit
+                </button>
+              </a>
+            </td>
+          </tr> 
+    
+        @endforeach
+    </tbody> 
+</table>
 
 <br>
 <br>
@@ -71,21 +53,15 @@
     @csrf
     <div> 
         <div class="control">
-            <input type="text" name="content" id = "content">
+            <input class ="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+             type ="text" name="content" id = "content" placeholder="type your message here">
             <br>
         </div>
-    </div>
-    <br>
-
-    <div>
+        <br>
         <div class="control">
-            <button class="button is-link" type="submit">send</button>
-            <br>
-            <br>
-
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">send</button>
         </div>
     </div>
 </form>
-
 
 @stop

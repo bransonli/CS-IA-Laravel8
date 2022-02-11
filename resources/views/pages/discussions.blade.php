@@ -5,10 +5,17 @@
 
 @section('content')
 
-  <h1 style="background-color: white;">Discussions on {{$subject->name}}</h1>
+  <h1 class="font-medium leading-tight text-5xl mt-0 mb-2 text-blue-600">
+    Discussions on {{$subject->name}}</h1>
 
-  <a href="/subjects/{{$subject->name}}/discussion/create"><button class="btn btn-dark">Create new discussion</button></a>
-  <br>
+
+
+  <a href="/subjects/{{$subject->name}}/discussion/create">
+    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+      Create new discussion
+    </button>
+  </a>
+  <br><br>
 
   <table class="table-auto w-full">
     <thead class="bg-gray-50">
@@ -23,12 +30,12 @@
             <td><b>{{$discussion->name}}</b></td>
             <td>
               <a href="/subjects/{{$subject->name}}/discussion/{{$discussion->id}}">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.1 px-4  rounded">
+                <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-0.1 px-4  rounded">
                   view
                 </button>
               </a>
               <a href='/subjects/{{$subject->name}}/discussion/{{$discussion->id}}/delete'>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-0.1 px-4 rounded">            
+                <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-0.1 px-4 rounded">            
                   delete
                 </button>
               </a>
