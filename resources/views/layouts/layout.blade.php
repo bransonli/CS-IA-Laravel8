@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>OneMind</title>
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
@@ -24,8 +24,8 @@
 
             <!-- Page Heading -->
             <header class="bg-white shadow">
-                <div class="hidden sm:-my-px sm:ml-10 sm:flex">
-                    <form method ='POST' action ='/search'>
+                <div class="hidden sm:-my-px sm:ml-10 sm:flex" >
+                    <form method ='POST' action ='/search' style="margin-bottom: 1%; margin-left: 75%;">
                         @csrf
                         <div> 
                             <div class="control">
@@ -35,16 +35,6 @@
                             </div>
                         </div>
                     </form>
-                    <form method ='POST' action ='/search'>
-                        @csrf
-                        <div> 
-                            <div class="control">
-                                <br>
-                                <button class=" whitespace-nowrap bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4" type="submit">search</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
                 <br>
             </header>
 

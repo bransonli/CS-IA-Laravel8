@@ -24,7 +24,11 @@ class SubjectSeeder extends Seeder
             ['id' => 2, 'name' => 'Math'],
             ['id' => 3, 'name' => 'Computer science'],
             ['id' => 4, 'name' => 'Langlit'],
-            ['id' => 5, 'name' => 'Chinese'],
+            ['id' => 5, 'name' => 'Design Tech'],
+            ['id' => 6, 'name' => 'Spanish'],
+            ['id' => 7, 'name' => 'Chemistry'],
+            ['id' => 8, 'name' => 'Biology'],
+            ['id' => 9, 'name' => 'Business Management'],
         ];        
         
         foreach($subjects as $subject){

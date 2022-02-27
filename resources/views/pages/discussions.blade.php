@@ -17,7 +17,7 @@
   </a>
   <br><br>
 
-  <table class="table-auto w-full">
+  <table class="table-fixed w-full">
     <thead class="bg-gray-50">
       <tr>
         <td scope="col">Topic</td>
@@ -27,7 +27,7 @@
     <tbody class="bg-white divide-y divide-gray-300">
         @foreach ($discussions as $discussion)
           <tr class="whitespace-nowrap">
-            <td><b>{{$discussion->name}}</b></td>
+            <td class="px-6 py-4 text-sm text-gray-500 break-all">{{$discussion->name}}</td>
             <td>
               <a href="/subjects/{{$subject->name}}/discussion/{{$discussion->id}}">
                 <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-0.1 px-4  rounded">

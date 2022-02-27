@@ -1,8 +1,5 @@
 @extends('layouts/layout')
 @section('title')
-  <head>
-    <title> Title </title>
-  </head>
 @stop
 
 @section('content')

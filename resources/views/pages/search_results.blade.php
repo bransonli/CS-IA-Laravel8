@@ -1,8 +1,5 @@
 @extends('layouts/layout')
 @section('title')
-  <head>
-    <title> Title </title>
-  </head>
 @stop
 @section('content')
 
@@ -40,8 +37,8 @@
     <tbody class="bg-white divide-y divide-gray-300">
         @foreach ($notes as $note)
           <tr class="whitespace-nowrap">
-            <td><a href="/subjects/{{$note->subject->name}}/note/{{$note->id}}">{{$note->name}}</a></td>
-            <td>{{$note-description}}</td>
+            <td><a href="/subjects/{{$note->subject->name}}/note/{{$note->id}}/download">{{$note->name}}</a></td>
+            <td>{{$note->description}}</td>
             <td>{{$note->created_at}}</td>
           </tr>  
         @endforeach
@@ -63,7 +60,7 @@
     <tbody class="bg-white divide-y divide-gray-300">
         @foreach ($resources as $resource)
           <tr class="whitespace-nowrap">
-            <td><a href="/subjects/{{$resource->subject->name}}/resource/{{$resource->id}}">{{$resource->name}}</a></td>
+            <td><a href="{{$resource->link}}">{{$resource->name}}</a></td>
             <td>{{$resource->description}}</td>
             <td>{{$resource->created_at}}</td>
           </tr>  

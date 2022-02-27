@@ -1,8 +1,5 @@
 @extends('layouts/layout')
 @section('title')
-  <head>
-    <title> {{$discussion->name}} </title>
-  </head>
 @stop
 
 @section('content')
