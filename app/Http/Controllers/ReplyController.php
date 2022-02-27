@@ -42,10 +42,11 @@ class ReplyController extends Controller
     }
 
 
-    public function edit($discussion, $id)
+    public function edit($subject_name, $discussion_id, $id)
     {
         // show a form to edit an existing item 
         $reply = Reply::where('id' , $id)->first();
+        dd($reply);
         $discussion = Discussion::where("id", $reply->discussion_id)->first();
         $subject = Subject::where("id", $discussion->subject_id)->first();
 
