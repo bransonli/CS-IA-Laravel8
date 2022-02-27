@@ -18,18 +18,6 @@ class UserSeeder extends Seeder
     public function run()
     {
 
-        $users = [
-            ['id' => 1, 'name' => 'Aaron', 'email' => 'aaron@gmail.com', 'role' => 'student',
-            'password' => '$2y$10$.2SA7/XvbkZFmL1/w2lB6uWGedkWKqY6OZ4Q932CbCn0CepxOERaC',
-            ],
-            ['id' => 2, 'name' => 'Martin', 'email' => 'martin@gmail.com', 'role' => 'student',
-            'password' => '$2y$10$.2SA7/XvbkZFmL1/w2lB6uWGedkWKqY6OZ4Q932CbCn0CepxOERaC',
-            ],
-        ]; /** can do this bcrypt('hello') */
-        
-        foreach($users as $user){
-            User::create($user);
-        }
     }
 }
 
