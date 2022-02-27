@@ -32,14 +32,16 @@ class SearchController extends Controller
             for ($y = 0; $y < count($discussions); $y++) {
                 $discussion_name = $discussions[$y]->name;
                 if (strstr($discussion_name, $words[$x]) !== false){
-                    array_push($related_discussions, $discussions[$x]);
+    
+                    array_push($related_discussions, $discussions[$y]);
                 }
             }
 
             for ($y = 0; $y < count($replies); $y++) {
                 $reply_content = $replies[$y]->content;
                 if (strstr($reply_content, $words[$x]) !== false){
-                    $discussion = Discussion::where("id", $replies[$x]->discussion_id)->first();
+              
+                    $discussion = Discussion::where("id", $replies[$y]->discussion_id)->first();
                     array_push($related_discussions, $discussion);
                 }
             }
@@ -49,9 +51,10 @@ class SearchController extends Controller
                 $note_name = $notes[$y]->name;
                 $note_description = $notes[$y]->description;
                 if (strstr($note_name, $words[$x]) !== false){
-                    array_push($related_notes, $notes[$x]);
+           
+                    array_push($related_notes, $notes[$y]);
                 } elseif (strstr($note_description, $words[$x]) !== false) {
-                    array_push($related_notes, $notes[$x]);
+                    array_push($related_notes, $notes[$y]);
                 }
             }
 
@@ -59,9 +62,10 @@ class SearchController extends Controller
                 $resource_name = $resources[$y]->name;
                 $resource_description = $resources[$y]->description;
                 if (strstr($resource_name, $words[$x]) !== false){
-                    array_push($related_resources, $resources[$x]);
+           
+                    array_push($related_resources, $resources[$y]);
                 } elseif (strstr($resource_description, $words[$x]) !== false){
-                    array_push($related_resources, $resources[$x]);
+                    array_push($related_resources, $resources[$y]);
                 }
             }
         } 
