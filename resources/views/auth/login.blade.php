@@ -46,8 +46,11 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-            
-                <a href="/register">register</a>
+
+                <div style="margin-left: 5px;">
+                    <a href="/register"> register </a>
+                </div>
+                
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}

@@ -30,9 +30,9 @@
             <!-- Role -->
             <div class="mt-4">
                 <x-label for="role" :value="__('Role')" />
-                <select id="role" class='block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50' name="role" :value="old('role')" required>
-                    <option>Student</option>
-                    <option>Teacher</option>
+                <select id="role" type="text" name="role" class='block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50' name="role" :value="old('role')" required>
+                    <option>student</option>
+                    <option>teacher</option>
                 </select>
             </div>
 
